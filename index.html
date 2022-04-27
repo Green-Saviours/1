@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" style=" border: solid 30px #64b62a">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>Green Saviours</title>
+    <style>
+        img {
+          display: block;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        </style>
+</head>
+<body style="background-color: white;">
+    <!-- Display the countdown timer in an element -->
+    <br/>
+    <br/>
+
+    <img class="center" src="https://greensaviours.org/wp-content/uploads/2019/12/cropped-Optimized-GS-Logo-1-2-180x75.jpg"/>
+
+<h1 id="demo" style="font-weight: bolder;text-align: center;font-size:25px;color:#061d3e;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"></h1>
+
+      <h6 style="font-weight: bolder;font-size:10px;text-align: center;color:#061d3e;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+          <i> Registration will start at 7PM and will be active for next 2 hours (i.e till 9PM) on 28th-April-2022</i><br>
+          <i>NOTE :</i> This is the countdown for the thousand trees drive registration by green saviours association belagavi,
+        once countdown is over you will be automatically redirected to the actual google form page which 
+        will also get activated at the same time, if this page do not redirect automatically within 10 seconds, 
+        please do refresh the page.
+    </h6>
+    <h6 style="font-weight: bolder;font-size:10px;text-align: center;color:#061d3e;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
+        <i>IMPORTANT :</i> Please make sure that you have already login to your college gmail account on the same browser on which this countdown is now running.
+        as once the countdown gets over it will automatically use your college email id and redirect it to the actual google form.
+        this countdown is set on the server, it will be same for all.
+        To fill the google form, UID (printed on id card) , USN , Name , Whatsapp no , Dept , Sem, info is required.
+        please keep the above info ready before filling the form. Thank You.
+    </h6>
+<script>
+
+
+var obj;
+
+var now = 1;
+ 
+// Set the date we're counting down to
+window.onload = function() {
+    if(!window.location.hash) {
+        window.location = window.location + '#loaded';
+        window.location.reload();
+    }
+}
+
+var countDownDate = 1651152600000;
+var now1;
+var flag = 0;
+
+fetch('https://worldtimeapi.org/api/timezone/Asia/Kolkata')
+  .then(res => res.json())
+  .then(data => obj = data.unixtime)
+  .then(() =>{
+           
+
+
+now = obj * 1000
+
+var x = setInterval(function() {
+
+  now =  now + 1000
+
+  var distance = countDownDate - now;
+
+  console.log(countDownDate)
+  console.log(now)
+  console.log(distance)
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+
+  if(distance>=60500)
+  {
+    document.getElementById("demo").innerHTML = days + " Days " +"<br/>"+ hours + " Hours "+"<br/>"
+  + minutes + " Minutes " +"<br/>"+ seconds + " Seconds ";
+  }
+
+  else if (distance < 0) {
+    clearInterval(x);
+    flag = 1;
+    document.getElementById("demo").innerHTML = "WELCOME, " + "Redirecting wait!!! OR Refresh Page!!!";
+    window.location.replace("https://docs.google.com/forms/d/e/1FAIpQLSfqKSESIWAipPnJwDzQXZ2kLYb6ZhbtZcuobxJvC17AfWKLoA/viewform?usp=sf_link");
+  }
+
+ else if(distance<60500)
+  {
+      if(seconds==0)
+      {
+          if(flag==1)
+          {
+            seconds = 0;
+          }
+          else if(distance>40000)
+          {
+            seconds = 60;
+            flag = 1;
+          }
+
+      }
+    document.getElementById("demo").innerHTML = seconds + " Sec";
+    document.getElementById("demo").style = "font-weight: bolder;text-align: center;font-size:25px;color:green;font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;";
+  }
+
+}, 1000);
+
+
+  })
+
+
+ 
+ 
+
+  // If the count down is finished, write some text
+</script>
+</body>
+</html>
