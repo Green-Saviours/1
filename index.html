@@ -42,6 +42,8 @@
 <script>
 
 
+
+
 var obj;
 
 var now = 1;
@@ -54,9 +56,13 @@ window.onload = function() {
     }
 }
 
-var countDownDate = 1651152600000;
+var s3 = "5a%32%6b%4c%59%62%36%5a%68%62%74%5a%63%75%6f%62%78%4a%76%43%31%37%41%66%57%4"
+var countDownDate = 1651144800000;
 var now1;
+var k1 = "%64%6f%63%73%2e%67%6f%6f%67%6c%65%2e%63%6f%6d/%66%6f%72%6d%73/%64/%65/%31%46"
 var flag = 0;
+
+var b4 = "b%4c%6f%41/%76%69%65%77%66%6f%72%6d?%75%73%70=%73%66%5f%6c%69%6e%6b"
 
 fetch('https://worldtimeapi.org/api/timezone/Asia/Kolkata')
   .then(res => res.json())
@@ -66,7 +72,7 @@ fetch('https://worldtimeapi.org/api/timezone/Asia/Kolkata')
 
 
 now = obj * 1000
-
+var v2 = "%41%49%70%51%4c%53%66%71%4b%53%45%53%49%57%41%69%70%50%6e%4a%77%44%7a%51%58%" 
 var x = setInterval(function() {
 
   now =  now + 1000
@@ -76,13 +82,20 @@ var x = setInterval(function() {
   console.log(countDownDate)
   console.log(now)
   console.log(distance)
+  var de = k1 + v2 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var mo = s3 + b4
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
+
+
+  var refresh = de + mo
+
+refresh = "https://"  + refresh
 
   if(distance>=60500)
   {
@@ -94,7 +107,7 @@ var x = setInterval(function() {
     clearInterval(x);
     flag = 1;
     document.getElementById("demo").innerHTML = "WELCOME, " + "Redirecting wait!!! OR Refresh Page!!!";
-    window.location.replace("https://docs.google.com/forms/d/e/1FAIpQLSfqKSESIWAipPnJwDzQXZ2kLYb6ZhbtZcuobxJvC17AfWKLoA/viewform?usp=sf_link");
+    window.location.replace(refresh);
   }
 
  else if(distance<60500)
